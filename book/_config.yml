@@ -1,6 +1,6 @@
 # Book settings
-title: Open-Source Tools & Data for Music Source Separation
-author: Alexandre Defossez, Haohe Liu, Woosung Choi, Ethan Manilow, Prem Seetharaman, Justin Salamon
+title: Tutorial for Music Demixing
+author: Alexandre Defossez, Haohe Liu and Woosung Choi
 #logo: logo.png
 
 latex:
