@@ -5,7 +5,7 @@ Tutorial for Music Demixing
 
 Shared under [Creative Commons BY-NC-SA 4.0](https://github.com/source-separation/tutorial/blob/master/LICENSE.txt).
 
-```{image} images/mdx.png
+```{image} images/mdx.jpg
 ---
 alt: Separating of musical signals.
 ```

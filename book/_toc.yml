@@ -1,6 +1,27 @@
 format: jb-book
 root: index
 parts:
+  - caption: Task, Datasets, and Losses
+    chapters:
+      - file: intro/music_demixing
+      - file: intro/datasets
+      - file: intro/losses
+  - caption: Estimation Strategy
+    chapters:
+      - file: strategy/waveform
+      - file: strategy/spectrogram
+      - file: strategy/hybrid
+  - caption: Baseines
+    chapters:
+      - file: baslines/index
+  - caption: MDX Challenge
+    chapters:
+      - file: mdx/mdx
+      - file: mdx/cws_presunet
+      - file: mdx/kuielab_mdx_net
+      - file: mdx/demucs_pp
+
+ #
 #  - caption: Introduction
 ##    numbered: True
 #    chapters:
@@ -16,12 +37,6 @@ parts:
 #    - file: basics/phase
 #    - file: basics/evaluation
 #
-  - caption: MDX Challenge
-    chapters:
-      - file: mdx/mdx
-      - file: mdx/cws_presunet
-      - file: mdx/kuielab_mdx_net
-      - file: mdx/demucs_pp
 #
 #- part: First Steps
 #  chapters:
