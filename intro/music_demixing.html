@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Demixing &#8212; Tutorial for Music Demixing</title>
+    <title>Music Demixing &#8212; A Primer on Source Separation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -43,6 +43,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe,.cell"
@@ -53,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Datasets" href="datasets.html" />
-    <link rel="prev" title="Tutorial for Music Demixing" href="../index.html" />
+    <link rel="prev" title="MDX Workshop: A Primer on Source Separation" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -74,7 +76,7 @@
       
       
       
-      <h1 class="site-logo" id="site-title">Tutorial for Music Demixing</h1>
+      <h1 class="site-logo" id="site-title">A Primer on Source Separation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -85,7 +87,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../index.html">
-   Tutorial for Music Demixing
+   MDX Workshop: A Primer on Source Separation
   </a>
  </li>
 </ul>
@@ -216,11 +218,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/source-separation/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/kuielab/mdx-tutorial"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/source-separation/tutorial/issues/new?title=Issue%20on%20page%20%2Fintro/music_demixing.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/kuielab/mdx-tutorial/issues/new?title=Issue%20on%20page%20%2Fintro/music_demixing.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -241,6 +243,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-separation">
+   Source Separation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Music Demixing
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -251,14 +271,39 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="music-demixing">
 <h1>Music Demixing<a class="headerlink" href="#music-demixing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="source-separation">
+<h2>Source Separation<a class="headerlink" href="#source-separation" title="Permalink to this headline">¶</a></h2>
+<p>Source separation is the process of isolating individual sounds in an auditory
+mixture of multiple sounds <span id="id1">[<a class="reference internal" href="../zzz_refs.html#id24">CFL+18</a>, <a class="reference internal" href="../zzz_refs.html#id83">RLStoter+18</a>, <a class="reference internal" href="../zzz_refs.html#id25">VVG18</a>]</span>
+, as defined in the <a class="reference external" href="https://source-separation.github.io/tutorial/intro/src_sep_101.html">previous tutorial</a>
+<span id="id2">[<a class="reference internal" href="../zzz_refs.html#id3">MSS20</a>]</span>.</p>
+<p>Mathematically, we assume that a mixture signal <span class="math notranslate nohighlight">\(y(t)\)</span> consists of <span class="math notranslate nohighlight">\(N\)</span> sources,
+<span class="math notranslate nohighlight">\(x_n(t)\)</span>, for <span class="math notranslate nohighlight">\(n=1...N\)</span>, such that</p>
+<div class="math notranslate nohighlight">
+\[
+y(t) = \displaystyle\sum_{i=1}^{N} x_i(t).
+\]</div>
+<p>Source separation is the inverse operation of the mixing process.
+We aim to find the original signals, <span class="math notranslate nohighlight">\(x_n(t)\)</span> for <span class="math notranslate nohighlight">\(n=1...N\)</span>, for a given mixture signal <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
+</div>
+<div class="section" id="id3">
+<h2>Music Demixing<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Music Demixing (MDX) is a special case of Source Separation.
+A given mixture signal is a song, and source signals are sounds from musical instruments.</p>
+<p>Recently, many data-driven approaches have been proposed for music demixing.
+Especially, deep learning methods <span id="id4">[<a class="reference internal" href="../zzz_refs.html#id51">CKCJ21</a>, <a class="reference internal" href="../zzz_refs.html#id50">CKC+20</a>, <a class="reference internal" href="../zzz_refs.html#id49">DefossezUBB19a</a>, <a class="reference internal" href="../zzz_refs.html#id48">DefossezUBB19b</a>, <a class="reference internal" href="../zzz_refs.html#id90">HKVM20</a>, <a class="reference internal" href="../zzz_refs.html#id53">KCL+21</a>, <a class="reference internal" href="../zzz_refs.html#id52">LKJX21</a>, <a class="reference internal" href="../zzz_refs.html#id54">LXWY20</a>, <a class="reference internal" href="../zzz_refs.html#id57">LluisPS19</a>, <a class="reference internal" href="../zzz_refs.html#id79">TM20</a>]</span>
+have become mainstream because they have shown outstanding performance.</p>
+<p>To train a deep neural network for music demixing, we need a training dataset.
+We explore datasets for music demixing in the following section.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "source-separation/tutorial",
-            ref: "master",
+            repo: "kuielab/mdx-tutorial",
+            ref: "mdx",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -287,7 +332,7 @@
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Tutorial for Music Demixing</p>
+                <p class="prevnext-title">MDX Workshop: A Primer on Source Separation</p>
             </div>
         </a>
     </div>
@@ -309,7 +354,7 @@
     <div class="container">
       <p>
         
-          By Alexandre Defossez, Haohe Liu and Woosung Choi<br/>
+          By Woosung Choi, Alexandre Defossez, and Haohe Liu<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
