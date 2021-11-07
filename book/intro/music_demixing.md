@@ -23,6 +23,11 @@ We aim to find the original signals, $x_n(t)$ for $n=1...N$, for a given mixture
 Music Demixing (MDX) is a special case of Source Separation. 
 A given mixture signal is a song, and source signals are sounds from musical instruments.
 
+```{image} ../images/source_separation.png
+---
+alt: Music Demixing.
+```
+
 Recently, many data-driven approaches have been proposed for music demixing.
 Especially, deep learning methods {cite}`kong2021decoupling,lin2021unified,choi2020,liu2020,takahashi2020d3net,spleeter2020,defossez2019music,defossez2019demucs,lluis2019end,choi2021lasaft`
 have become mainstream because they have shown outstanding performance.
