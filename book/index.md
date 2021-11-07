@@ -1,11 +1,11 @@
-Tutorial for Music Demixing
+MDX Workshop: A Primer on Source Separation
 ====================================================
 
 **Alexandre Defossez, Haohe Liu and Woosung Choi**
 
 Shared under [Creative Commons BY-NC-SA 4.0](https://github.com/source-separation/tutorial/blob/master/LICENSE.txt).
 
-```{image} images/mdx.jpg
+```{image} images/mdx.png
 ---
 alt: Separating of musical signals.
 ```
