@@ -55,13 +55,13 @@ If you wish to reference this book in your own work, you can use the following
 `bibtex` entry:
 
 ```
-@book{opensourceseparation:book,
-	Author = {Ethan Manilow and Prem Seetharman and Justin Salamon},
-	Month = Oct.,
-	Publisher = {https://source-separation.github.io/tutorial},
-	Title = {Open Source Tools \& Data for Music Source Separation},
-	Year = 2020,
-	Url = {https://source-separation.github.io/tutorial}
+@book{mdx:book,
+	Author = {Woosung Choi and Alexandre Defossez and Haohe Liu},
+	Month = Octover,
+	Publisher = {https://source-separation.github.io/mdx-tutorial},
+	Title = {MDX Workshop: A Primer on Source Separation¶},
+	Year = 2021,
+	Url = {https://source-separation.github.io/mdx-tutorial}
 }
 ```
 
