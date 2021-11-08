@@ -3,7 +3,7 @@ root: index
 parts:
   - caption: Task, Datasets, and Losses
     chapters:
-      - file: intro/music_demixing
+      - file: intro/task
       - file: intro/datasets
       - file: intro/losses
   - caption: Estimation Strategy

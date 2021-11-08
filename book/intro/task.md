@@ -1,5 +1,7 @@
-Music Demixing
+Task
 ==============
+
+The task of the Music Demixing (MDX) Challenge is *music demixing*, which is a special case of *source separation*.
 
 ## Source Separation
 Source separation is the process of isolating individual sounds in an auditory
