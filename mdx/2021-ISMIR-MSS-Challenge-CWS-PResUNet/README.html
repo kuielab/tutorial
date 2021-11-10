@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> &#8212; A Primer on Source Separation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">A Primer on Source Separation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   MDX Workshop: A Primer on Source Separation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Task, Datasets, and Losses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/task.html">
+   Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/musdb18.html">
+   MUSDB18
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro/losses.html">
+   losses
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Estimation Strategy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../strategy/waveform.html">
+   Waveform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../strategy/spectrogram.html">
+   Spectrogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../strategy/hybrid.html">
+   Hybrid
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  MDX Challenge
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mdx.html">
+   MDX Challenge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cws_presunet.html">
+   Music Demixing (MDX) Challenge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hybrid_demucs.html">
+   Hybrid Demucs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../kuielab_mdx_net.html">
+   KUIELab-MDX-Net
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/mdx/2021-ISMIR-MSS-Challenge-CWS-PResUNet/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kuielab/mdx-tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kuielab/mdx-tutorial/issues/new?title=Issue%20on%20page%20%2Fmdx/2021-ISMIR-MSS-Challenge-CWS-PResUNet/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#update-on-2021-09">
+   Update on 2021.09
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#music-source-separation-with-channel-wise-subband-phase-aware-resunet-cws-presunet">
+   Music Source Separation with Channel-wise Subband Phase Aware ResUnet (CWS-PResUNet)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction">
+     Introduction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usage-for-mss">
+     1. Usage (For MSS)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prepare-running-environment">
+       1.1 Prepare running environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#use-pretrained-model">
+       1.2 Use pretrained model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#train-new-mss-models-from-scratch">
+       1.3 Train new MSS models from scratch
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#how-to-train">
+         1.3.1 How to train
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#use-the-model-you-trained">
+         1.3.2 Use the model you trained
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#model-evaluation">
+       1.4 Model Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usage-for-customizing-sound-source">
+     2. Usage (For customizing sound source)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#todo">
+     3. todo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reference">
+     4. Reference
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="open-in-colab">
+<h1><a class="reference external" href="https://colab.research.google.com/drive/1E2yJLWN8MH6GJUw15cj490E2BaeAcGie?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a><a class="headerlink" href="#open-in-colab" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="#1-usage--for-mss-">1. Usage (For MSS)</a></p>
+<ul>
+<li><p><a class="reference external" href="#11-prepare-running-environment">1.1 Prepare running environment</a></p></li>
+<li><p><a class="reference external" href="#12-use-pretrained-model">1.2 Use pretrained model</a></p></li>
+<li><p><a class="reference external" href="#13-train-new-mss-models-from-scratch">1.3 Train new MSS models from scratch</a></p>
+<ul>
+<li><p><a class="reference external" href="#131-how-to-train">1.3.1 How to train</a></p></li>
+<li><p><a class="reference external" href="#132-use-the-model-you-trained">1.3.2 Use the model you trained</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#14-model-evaluation">1.4 Model Evaluation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#2-usage--for-customizing-sound-source-">2. Usage (For customizing sound source)</a></p></li>
+<li><p><a class="reference external" href="#3-todo">3. todo</a></p></li>
+<li><p><a class="reference external" href="#4-reference">4. Reference</a></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="update-on-2021-09">
+<h1>Update on 2021.09<a class="headerlink" href="#update-on-2021-09" title="Permalink to this headline">¶</a></h1>
+<p>Here is the package <strong>torchsubband</strong> I wrote for subband decomposition.</p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/haoheliu/torchsubband">https://github.com/haoheliu/torchsubband</a></p>
+</div></blockquote>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="music-source-separation-with-channel-wise-subband-phase-aware-resunet-cws-presunet">
+<h1>Music Source Separation with Channel-wise Subband Phase Aware ResUnet (CWS-PResUNet)<a class="headerlink" href="#music-source-separation-with-channel-wise-subband-phase-aware-resunet-cws-presunet" title="Permalink to this headline">¶</a></h1>
+<p><img alt="ranking" src="../../_images/demo.png" /></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This repo contains the pretrained Music Source Separation models I submitted to the <a class="reference external" href="https://www.aicrowd.com/challenges/music-demixing-challenge-ismir-2021">2021 ISMIR MSS Challenge</a>.
+We only participate the Leaderboard A, so these models are solely trained on MUSDB18HQ.</p>
+<p>You can use this repo to separate ‘bass’, ‘drums’, ‘vocals’, and ‘other’ tracks from a music mixture.
+Also we provides our <em>vocals</em> and <em>other</em> models’ training pipline. You can train your own model easily.</p>
+<p>As is shown in the following picture, in leaderboard A, we(ByteMSS) achieved the 2nd on Vocal score and 5th on average score.
+For bass and drums separation, we directly use <a class="reference external" href="https://github.com/facebookresearch/demucs">the open-sourced demucs model</a>. It’s trained with only MUSDB18HQ data, thus is qualified for LeaderBoard A.</p>
+<p><img alt="ranking" src="../../_images/ranks.png" /></p>
+</div>
+<div class="section" id="usage-for-mss">
+<h2>1. Usage (For MSS)<a class="headerlink" href="#usage-for-mss" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prepare-running-environment">
+<h3>1.1 Prepare running environment<a class="headerlink" href="#prepare-running-environment" title="Permalink to this headline">¶</a></h3>
+<p>First you need to clone this repo:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/haoheliu/2021-ISMIR-MSS-Challenge-CWS-PResUNet.git
+</pre></div>
+</div>
+<p>Install the required packages</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="m">2021</span>-ISMIR-MSS-Challenge-CWS-PResUNet
+pip3 install --upgrade <span class="nv">virtualenv</span><span class="o">==</span><span class="m">16</span>.7.9 <span class="c1"># this version virtualenv support the --no-site-packages option</span>
+virtualenv --no-site-packages env_mss <span class="c1"># create new environment</span>
+<span class="nb">source</span> env_mss/bin/activate <span class="c1"># activate environment</span>
+pip3 install -r requirements.txt <span class="c1"># install requirements</span>
+</pre></div>
+</div>
+<p>You’d better have <em>wget</em> and <em>unzip</em> command installed so that the scripts can automatically download pretrained models and unzip them.</p>
+</div>
+<div class="section" id="use-pretrained-model">
+<h3>1.2 Use pretrained model<a class="headerlink" href="#use-pretrained-model" title="Permalink to this headline">¶</a></h3>
+<p>To use the pretrained model to conduct music source separation. You can run the following demos. If it’s the first time you run this program, it will automatically download the pretrained models.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 main -i &lt;input-wav-file-path/folder&gt; 
+             -o &lt;output-path-dir&gt; 
+             -s &lt;sources-to-separate&gt;  <span class="c1"># vocals bass drums other (all four stems by default)</span>
+             --cuda  <span class="c1"># if wanna use GPU, use this flag</span>
+             <span class="c1"># --wiener  # if wanna use wiener filtering, use this flag. </span>
+             <span class="c1"># &#39;--wiener&#39; can take effect only when separation of all four tracks are done or you separate four tracks at the same time.</span>
+             
+<span class="c1"># &lt;input-wav-file-path&gt; is the .wav file to be separated or a folder containing all .wav mixtures.</span>
+<span class="c1"># &lt;output-path-dir&gt; is the folder to store the separation results </span>
+<span class="c1"># python3 main.py -i &lt;input-wav-file-path&gt; -o &lt;output-path-dir&gt;</span>
+<span class="c1"># Separate a single file to four sources</span>
+python3 main.py -i example/test/zeno_sign_stereo.wav -o example/results -s vocals bass drums other
+<span class="c1"># Separate all the files in a folder</span>
+python3 main.py -i example/test/ -o example/results
+<span class="c1"># Use GPU Acceleration</span>
+python3 main.py -i example/test/zeno_sign_stereo.wav -o example/results --cuda
+<span class="c1"># Separate all the files in a folder using GPU and wiener filtering post processing (may introduce new distortions, make the results even worse.)</span>
+python3 main.py -i example/test -o example/results --cuda <span class="c1"># --wiener</span>
+</pre></div>
+</div>
+<p>Each pretrained model in this repo take us approximately two days on 8 V100 GPUs to train.</p>
+</div>
+<div class="section" id="train-new-mss-models-from-scratch">
+<h3>1.3 Train new MSS models from scratch<a class="headerlink" href="#train-new-mss-models-from-scratch" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="how-to-train">
+<h4>1.3.1 How to train<a class="headerlink" href="#how-to-train" title="Permalink to this headline">¶</a></h4>
+<p>For the training data:</p>
+<ul class="simple">
+<li><p>If you havn’t download musdb18hq, we will automatically download the dataset for you by running the following command.</p></li>
+<li><p>If you have already download musdb18hq, you can put <em>musdb18hq.zip</em> or <em>musdb18hq</em> folder into the <em>data</em>
+folder and run <em><a class="reference external" href="http://init.sh">init.sh</a></em> to prepare this dataset.</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> init.sh
+</pre></div>
+</div>
+<p>Finally run either of these two commands to start training.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># For track &#39;vocals&#39;, we use a 4 subbands resunet to perform separation. </span>
+<span class="c1"># The input of model is mixture and its output is vocals waveform.</span>
+<span class="c1"># Note: Batchsize is set to 16 by default. Check your hard ware configurations to avoid GPU OOM.</span>
+<span class="nb">source</span> models/resunet_conv8_vocals/run.sh
+
+<span class="c1"># For track &#39;other&#39;, we also use a 4 subbands resunet to perform separation.</span>
+<span class="c1"># But for this track, we did a little modification.</span>
+<span class="c1"># The input of model is mixture, and its output are bass, other and drums waveforms. (bass and drums are only used during training) </span>
+<span class="c1"># We calculate the losses for &quot;bass&quot;,&quot;other&quot;, and &quot;drums&quot; these three sources together.</span>
+<span class="c1"># Result shows that joint training is beneficial for &#39;other&#39; track.</span>
+<span class="c1"># Note: Batchsize is set to 16 by default. Check your hard ware configurations to avoid GPU OOM.</span>
+<span class="nb">source</span> models/resunet_joint_training_other/run.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>By default, we use batchsize 8 and 8 gpus for <em>vocal</em> and batchsize 16 and 8 gpus for <em>other</em>. You can custom your own by modifying parameters in the above <a class="reference external" href="http://run.sh">run.sh</a> files.</p></li>
+<li><p>Training logs will be presented in the <em>mss_challenge_log</em> folder. System will perform validations every two epoches.</p></li>
+</ul>
+<p>Here we provide the result of a test run: ‘source models/resunet_conv8_vocals/run.sh’.</p>
+<p><img alt="ranking" src="../../_images/result.png" /></p>
+</div>
+<div class="section" id="use-the-model-you-trained">
+<h4>1.3.2 Use the model you trained<a class="headerlink" href="#use-the-model-you-trained" title="Permalink to this headline">¶</a></h4>
+<p>To use the the <em>vocals</em> and the <em>other</em> model you trained by your own. You need to modify the following two variables in the <em><a class="reference external" href="http://predictor.py">predictor.py</a></em> to the path of your models.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="mi">41</span> <span class="o">...</span>
+<span class="mi">42</span>  <span class="n">v_model_path</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">your</span><span class="o">-</span><span class="n">vocals</span><span class="o">-</span><span class="n">model</span><span class="o">&gt;</span>
+<span class="mi">43</span>  <span class="n">o_model_path</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">your</span><span class="o">-</span><span class="n">other</span><span class="o">-</span><span class="n">model</span><span class="o">&gt;</span>
+<span class="mi">44</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="model-evaluation">
+<h3>1.4 Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h3>
+<p>Since the evaluation process is slow, we separate the evaluation process out as a single task.
+It’s conducted on the validation results generated during training.</p>
+<ul class="simple">
+<li><p>We calculate the <em>sdr</em>,<em>isr</em>, and <em>sar</em> with the <a class="reference external" href="https://github.com/sigsep/sigsep-mus-eval">BSSEval v4</a></p></li>
+<li><p>We calculate the <em>sisdr</em> value with the <a class="reference external" href="https://github.com/aliutkus/speechmetrics">speechmetrics</a>.</p></li>
+<li><p>We calculate another version (non-windowed) of sdr, <em>sdr_ismir</em>, using <a class="reference external" href="https://github.com/AIcrowd/music-demixing-challenge-starter-kit/blob/master/evaluator/music_demixing.py#L75">the 2021 ISMIR MSS Challenge’s implementation</a>.</p></li>
+</ul>
+<p>Steps:</p>
+<ol class="simple">
+<li><p>Locate the path of the validation result. After training, you will get a validation folder inside your loging directory (<em>mss_challenge_log</em> by default).</p></li>
+<li><p>Determine which kind of source you wanna evaluate (bass, vocals, others or drums). Make sure its results present in the validation folder.</p></li>
+<li><p>Run <em><a class="reference external" href="http://eval.sh">eval.sh</a></em> with two arguments: the source type and the validation results folder (automatic generated after training in the logging folder).</p></li>
+</ol>
+<p>For example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># source eval.sh &lt;source-type&gt; &lt;your-validation-results-folder-after-training&gt; </span>
+
+<span class="c1"># evaluate vocal score</span>
+<span class="nb">source</span> eval.sh vocals mss_challenge_log/2021-08-11-subband_four_resunet_for_vocals-vocals/version_0/validations
+<span class="c1"># evaluate bass score</span>
+<span class="nb">source</span> eval.sh bass mss_challenge_log/2021-08-11-subband_four_resunet_for_vocals-vocals/version_0/validations
+<span class="c1"># evaluate drums score</span>
+<span class="nb">source</span> eval.sh drums mss_challenge_log/2021-08-11-subband_four_resunet_for_vocals-vocals/version_0/validations
+<span class="c1"># evaluate other score</span>
+<span class="nb">source</span> eval.sh other mss_challenge_log/2021-08-11-subband_four_resunet_for_vocals-vocals/version_0/validations
+</pre></div>
+</div>
+<p>The system will save the overall score and the score for each song in the result folder.</p>
+<p>For faster evalution, you can adjust the parameter <em>MAX_THREAD</em> insides the <em>evaluator/eval.py</em> to determine how many threads you gonna use. It’s value should fit your computer resources. You can start with <em>MAX_THREAD=3</em> and then try 6, 10 or 16.</p>
+</div>
+</div>
+<div class="section" id="usage-for-customizing-sound-source">
+<h2>2. Usage (For customizing sound source)<a class="headerlink" href="#usage-for-customizing-sound-source" title="Permalink to this headline">¶</a></h2>
+<p>This feature allows you to separate an arbitrary sound source as long as you got enough training data.</p>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1dy_cKt--oUUGtr44TI-0Oq-gxjqY4uw-?usp=sharing">This colab</a> demonstrates the following procedure.</p>
+<p><strong>Step1: Prepare running environment.</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>! git clone https://github.com/haoheliu/2021-ISMIR-MSS-Challenge-CWS-PResUNet.git
+<span class="c1"># MAKE SURE SOX IS INSTALLED</span>
+<span class="c1">#!apt-get install libsox-fmt-all libsox-dev sox &gt; /dev/null</span>
+%cd <span class="m">2021</span>-ISMIR-MSS-Challenge-CWS-PResUNet
+! pip3 install -r requirements.txt
+</pre></div>
+</div>
+<p><strong>Step2: Organize your data</strong></p>
+<p>I assume that you have already got the following two disjoint kinds of data (there are sample datas in this repo when you clone it):</p>
+<ol class="simple">
+<li><p>the_source_you_want_to_get (for example, speech data)</p></li>
+<li><p>the_source_you_want_to_remove (for example, noise data)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Split and put these data into <em>data/your_data</em> folder:</p>
+<ul>
+<li><p><em>train</em>(about 90%~99%): training data (used during training)</p>
+<ul>
+<li><p><em>the_source_you_want_to_get</em>: put your target source (the source you’d like to separate out) audios into this folder</p></li>
+<li><p><em>the_source_you_want_to_remove</em>: put undesired sources audios into this folder</p></li>
+</ul>
+</li>
+<li><p><em>test</em>(about 1%~10%): testing data (used during validation, every two epoches)</p>
+<ul>
+<li><p><em>the_source_you_want_to_get</em></p></li>
+<li><p><em>the_source_you_want_to_remove</em></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Then run:</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Automatic parsing your data</span>
+<span class="nb">source</span> init_your_data.sh
+</pre></div>
+</div>
+<p><strong>Step3: Start training!</strong></p>
+<ul class="simple">
+<li><p>Use the same MSS model</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> models/resunet_conv8_vocals/run.sh
+</pre></div>
+</div>
+<p>This script use 8 gpus with 8 batchsize by default. You may need to modify this <a class="reference external" href="http://run.sh">run.sh</a> to fit in your machine.</p>
+<ul class="simple">
+<li><p>Use a smaller model (1/8)</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> models/resunet_conv1_vocals/run.sh
+</pre></div>
+</div>
+<p>Log file will be automatic generated. You can check validation results during training, which update every two epoches.</p>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>To perform separation on real test data, you can upload validation data as real_mixture + silent.</p></li>
+<li><p>To make an epoch shorter, you can modify the parameter HOURS_FOR_A_EPOCH inside models/dataloader/loaders/individual_loader.py.</p></li>
+</ul>
+</div>
+<div class="section" id="todo">
+<h2>3. todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[✅] Open-source the training pipline (before 2021-08-20)</p></li>
+<li><p>[✅] Write a report paper about my findings in this MSS Challenge (before 2021-10-22)</p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h2>4. Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>If you find our code useful for your research, please consider citing:</p>
+<blockquote>
+<div><p>&#64;inproceedings{Liu2020,<br />
+author={Haohe Liu and Lei Xie and Jian Wu and Geng Yang},<br />
+title=,<br />
+year=2020,<br />
+booktitle={Proc. Interspeech 2020},<br />
+pages={1241–1245},<br />
+doi={10.21437/Interspeech.2020-2555},<br />
+url={<a class="reference external" href="http://dx.doi.org/10.21437/Interspeech.2020-2555">http://dx.doi.org/10.21437/Interspeech.2020-2555</a>}<br />
+}.</p>
+</div></blockquote>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kuielab/mdx-tutorial",
+            ref: "mdx",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./mdx/2021-ISMIR-MSS-Challenge-CWS-PResUNet"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Woosung Choi, Alexandre Defossez, and Haohe Liu<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-180111316-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

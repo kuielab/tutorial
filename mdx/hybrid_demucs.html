@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hybrid Demucs &#8212; A Primer on Source Separation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KUIELab-MDX-Net" href="kuielab_mdx_net.html" />
+    <link rel="prev" title="CWS-PResUnet" href="cws_presunet.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">A Primer on Source Separation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   MDX Workshop: A Primer on Source Separation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Task, Datasets, and Losses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/task.html">
+   Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/musdb18.html">
+   MUSDB18
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/losses.html">
+   losses
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Estimation Strategy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../strategy/waveform.html">
+   Waveform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../strategy/spectrogram.html">
+   Spectrogram
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../strategy/hybrid.html">
+   Hybrid
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  MDX Challenge
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mdx.html">
+   MDX Challenge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cws_presunet.html">
+   CWS-PResUnet
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hybrid Demucs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kuielab_mdx_net.html">
+   KUIELab-MDX-Net
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/mdx/hybrid_demucs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kuielab/mdx-tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kuielab/mdx-tutorial/issues/new?title=Issue%20on%20page%20%2Fmdx/hybrid_demucs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kuielab/mdx-tutorial/mdx?urlpath=tree/book/mdx/hybrid_demucs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/kuielab/mdx-tutorial/blob/mdx/book/mdx/hybrid_demucs.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dual-u-net-hybrid-architecture">
+   Dual U-Net Hybrid architecture
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compressed-residual-branches">
+   Compressed Residual branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-of-accuracy">
+     Comparison of accuracy
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-hybrid-demucs-in-colab">
+   How to use Hybrid Demucs in Colab
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="hybrid-demucs">
+<h1>Hybrid Demucs<a class="headerlink" href="#hybrid-demucs" title="Permalink to this headline">¶</a></h1>
+<p>Demucs is based on U-Net convolutional architecture inspired by <a class="reference external" href="https://github.com/f90/Wave-U-Net">Wave-U-Net</a>.
+The most recent version features hybrid spectrogram/waveform separation,
+along with compressed residual branches, local attention and singular value regularization.
+Checkout our paper <a class="reference external" href="https://arxiv.org/abs/2111.03600">Hybrid Spectrogram and Waveform Source Separation</a>
+for more details. As far as we know, Demucs is currently the only model supporting true
+end-to-end hybrid model training with shared information between the domains,
+as opposed to post-training model blending.</p>
+<p>For detailed instructions on how to install, use and train Demucs,
+checkout the <a class="reference external" href="https://github.com/facebookresearch/demucs">Demucs repository</a>.</p>
+<div class="section" id="dual-u-net-hybrid-architecture">
+<h2>Dual U-Net Hybrid architecture<a class="headerlink" href="#dual-u-net-hybrid-architecture" title="Permalink to this headline">¶</a></h2>
+<p>In order to add support for working at the same time in the spectrogram and waveform domain,
+Hybrid Demucs uses a dual U-Net structure. The temporal branch gradually reduces the number of time steps,
+while the spectral branch gradually reduces the number of frequency bins. After layer 5, the two representations
+have the same shape and can be summed. The 6-th layer is shared bewteen the two branches.
+The opposition happen in the decoder.</p>
+<p>The output of the spectral branch is inversed to a waveform in a differentiable manner and summed
+to the output of the temporal branch. The loss is thus always in the waveform domain and training
+is completely end-to-end. The model is free to use combine both domains and exchange information
+between them.</p>
+<p>We provide hereafter a visual representation of the two branches U-Net structure.</p>
+<div class="figure align-default" id="hybrid-demucs-schema">
+<img alt="Schema representing the structure of Demucs, with a dual U-Net structure with a shared core, one branch for the temporal domain, and one branch for the spectral domain." src="../_images/hybrid.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Dual U-Net structure of Demucs. The input waveform is processed
+both through a temporal encoder, and first through the STFT followed by
+a spectral encoder. The two representations are summed when their dimensions align.
+The decoder is built symmetrically. The output spectrogram go through the ISTFT
+and is summed with the waveform outputs, giving the final model output.
+The ‘Z’ prefix is used for spectral layers, and ‘T’ prefix for the
+temporal ones.</span><a class="headerlink" href="#hybrid-demucs-schema" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="compressed-residual-branches">
+<h2>Compressed Residual branches<a class="headerlink" href="#compressed-residual-branches" title="Permalink to this headline">¶</a></h2>
+<p>Hybrid Demucs also features new compressed residual branches that increase the expressivity of the model and allow it
+to handle long range context. Please refer to the paper for a detailed description of the content of those branches.</p>
+<div class="figure align-default" id="id1">
+<img alt="Schema representing the residual branches in Hybrid Demucs, with dilated convolutions, biLSTM and local attention." src="../_images/residual.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Representation of the compressed residual branches
+that are added to each encoder layer. For the 5th and 6th layer,
+a BiLSTM and a local attention layer are added.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>We provide hereafter a summary of the different metrics presented in the <a class="reference external" href="https://arxiv.org/abs/2111.03600">Hybrid Demucs paper</a>.
+You can also compare Hybrid Demucs (v3), <a class="reference external" href="https://github.com/kuielab/mdx-net-submission">KUIELAB-MDX-Net</a>, <a class="reference external" href="https://github.com/deezer/spleeter">Spleeter</a>, Open-Unmix, Demucs (v1), and Conv-Tasnet on one of my favorite
+songs on my <a class="reference external" href="https://soundcloud.com/voyageri/sets/source-separation-in-the-waveform-domain">soundcloud playlist</a>.</p>
+<div class="section" id="comparison-of-accuracy">
+<h3>Comparison of accuracy<a class="headerlink" href="#comparison-of-accuracy" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Overall</span> <span class="pre">SDR</span></code> is the mean of the SDR for each of the 4 sources, <code class="docutils literal notranslate"><span class="pre">MOS</span> <span class="pre">Quality</span></code> is a rating from 1 to 5
+of the naturalness and absence of artifacts given by human listeners (5 = no artifacts), <code class="docutils literal notranslate"><span class="pre">MOS</span> <span class="pre">Contamination</span></code>
+is a rating from 1 to 5 with 5 being zero contamination by other sources. We refer the reader to our <a class="reference external" href="https://arxiv.org/abs/2111.03600">paper</a>,
+for more details.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head"><p>Domain</p></th>
+<th class="head"><p>Extra data?</p></th>
+<th class="head"><p>Overall SDR</p></th>
+<th class="head"><p>MOS Quality</p></th>
+<th class="head"><p>MOS Contamination</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/f90/Wave-U-Net">Wave-U-Net</a></p></td>
+<td><p>waveform</p></td>
+<td><p>no</p></td>
+<td><p>3.2</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/sigsep/open-unmix-pytorch">Open-Unmix</a></p></td>
+<td><p>spectrogram</p></td>
+<td><p>no</p></td>
+<td><p>5.3</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/abs/2010.01733">D3Net</a></p></td>
+<td><p>spectrogram</p></td>
+<td><p>no</p></td>
+<td><p>6.0</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/facebookresearch/demucs/tree/v2">Conv-Tasnet</a></p></td>
+<td><p>waveform</p></td>
+<td><p>no</p></td>
+<td><p>5.7</p></td>
+<td><p>-</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/facebookresearch/demucs/tree/v2">Demucs (v2)</a></p></td>
+<td><p>waveform</p></td>
+<td><p>no</p></td>
+<td><p>6.3</p></td>
+<td><p>2.37</p></td>
+<td><p>2.36</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/abs/2109.05418">ResUNetDecouple+</a></p></td>
+<td><p>spectrogram</p></td>
+<td><p>no</p></td>
+<td><p>6.7</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/kuielab/mdx-net-submission">KUIELAB-MDX-Net</a></p></td>
+<td><p>hybrid</p></td>
+<td><p>no</p></td>
+<td><p>7.5</p></td>
+<td><p><strong>2.86</strong></p></td>
+<td><p>2.55</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Hybrid Demucs (v3)</strong></p></td>
+<td><p>hybrid</p></td>
+<td><p>no</p></td>
+<td><p><strong>7.7</strong></p></td>
+<td><p><strong>2.83</strong></p></td>
+<td><p><strong>3.04</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://arxiv.org/abs/1805.02410">MMDenseLSTM</a></p></td>
+<td><p>spectrogram</p></td>
+<td><p>804 songs</p></td>
+<td><p>6.0</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://arxiv.org/abs/2010.01733">D3Net</a></p></td>
+<td><p>spectrogram</p></td>
+<td><p>1.5k songs</p></td>
+<td><p>6.7</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/deezer/spleeter">Spleeter</a></p></td>
+<td><p>spectrogram</p></td>
+<td><p>25k songs</p></td>
+<td><p>5.9</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="how-to-use-hybrid-demucs-in-colab">
+<h2>How to use Hybrid Demucs in Colab<a class="headerlink" href="#how-to-use-hybrid-demucs-in-colab" title="Permalink to this headline">¶</a></h2>
+<p>Feel free to use the Colab version:
+<a class="reference external" href="https://colab.research.google.com/drive/1dC9nVxk3V_VPjUADsnFu8EiT-xnU1tGH?usp=sharing">https://colab.research.google.com/drive/1dC9nVxk3V_VPjUADsnFu8EiT-xnU1tGH?usp=sharing</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "kuielab/mdx-tutorial",
+            ref: "mdx",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./mdx"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="cws_presunet.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">CWS-PResUnet</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="kuielab_mdx_net.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">KUIELab-MDX-Net</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Woosung Choi, Alexandre Defossez, and Haohe Liu<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-180111316-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>
