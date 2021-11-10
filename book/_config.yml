@@ -1,6 +1,6 @@
 # Book settings
-title: Open-Source Tools & Data for Music Source Separation
-author: Alexandre Defossez, Haohe Liu, Woosung Choi, Ethan Manilow, Prem Seetharaman, Justin Salamon
+title: A Primer on Source Separation
+author: Woosung Choi, Alexandre Defossez, and Haohe Liu
 #logo: logo.png
 
 latex:
@@ -8,9 +8,9 @@ latex:
     targetname: book.tex
 
 repository:
-  url          : https://github.com/source-separation/tutorial
+  url          : https://github.com/kuielab/mdx-tutorial
   path_to_book : book
-  branch       : master
+  branch       : mdx
 
 launch_buttons:
   notebook_interface: "classic"
