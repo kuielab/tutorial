@@ -20,6 +20,7 @@ parts:
       - file: mdx/cws_presunet
       - file: mdx/kuielab_mdx_net
       - file: mdx/demucs_pp
+      - file: mdx/danna_sep
 
  #
 #  - caption: Introduction
