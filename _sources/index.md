@@ -1,7 +1,7 @@
 MDX Workshop: A Primer on Source Separation
 ====================================================
 
-**Alexandre Defossez, Haohe Liu and Woosung Choi**
+**Woosung Choi, Alexandre Defossez, Haohe Liu**
 
 Shared under [Creative Commons BY-NC-SA 4.0](https://github.com/source-separation/tutorial/blob/master/LICENSE.txt).
 
