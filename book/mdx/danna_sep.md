@@ -4,7 +4,7 @@ Danna-Sep is a combination of three different sub-models: X-UMX, U-Net, and Demu
 
 ## Multi-Domain Inputs
 
-The reason why we adopted a combinational approach is because it is known that source separation models which use spectrogram as inputs are effective on harmonic sources such as vocals, while those which use audio as inputs are effective on percussive sources such as drums. We aimed to combine the best of both worlds in our model. Below is the system diagram of our model.
+We adopted a combinational approach because it is known that source separation models which use spectrograms as inputs are more effective on harmonic sources such as vocals, while models which use raw waveforms as inputs are more effective on percussive sources such as drums. We aimed to combine both methods into our model. The diagram below shows the design of our model.
 
 
 ```{figure} ../images/danna/diagram.jpg
