@@ -1,6 +1,6 @@
 # Dana-Sep
 
-Danna-Sep is a combination of three different models: X-UMX, U-Net, and Demucs. Each sub-models has been modified either by training with a different objective, or by introducing some architecture changes. The final output is a linear combination of individual outputs from the sub-models. To know the exact settings and details about our model, please checkout our paper [**Danna-Sep: Unit to Separate Them All**](https://s3.eu-west-1.amazonaws.com/production-main-contentbucket52d4b12c-1x4mwd6yn8qjn/db5ef2bf-b28e-4596-b449-baa533044314.pdf) presented in the MDX21 workshop at ISMIR.
+Danna-Sep is a combination of three different models: X-UMX, U-Net, and Demucs. Each sub-models has been modified either by training with a different objective, or by introducing some architecture changes. The final output is a linear combination of individual outputs from the sub-models. To know the exact settings and details about our model, please checkout our paper [**Danna-Sep: Unit to Separate Them All**](https://mdx-workshop.github.io/proceedings/chinyun.pdf) presented in the MDX21 workshop at ISMIR.
 
 ```{figure} ../images/danna/diagram.jpg
 ---
