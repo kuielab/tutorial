@@ -1,4 +1,4 @@
-# Dana-Sep
+# Danna-Sep
 
 Danna-Sep is a combination of three different sub-models: X-UMX, U-Net, and Demucs. Each sub-model has been modified either by training with a different objective, or by introducing some architecture changes. The final output is a linear combination of individual outputs from the sub-models.
 
@@ -15,7 +15,7 @@ name: danna_sep_schema
 The schematic diagram of Danna-Sep.
 ```
 
-To know the exact settings and details about our model, please checkout our paper [**Danna-Sep: Unit to Separate Them All**](https://mdx-workshop.github.io/proceedings/chinyun.pdf) presented at the MDX workshop in ISMIR 2021.
+For more details about our model and the exact settings, please check our paper out [**Danna-Sep: Unit to Separate Them All**](https://mdx-workshop.github.io/proceedings/chinyun.pdf) presented at the MDX workshop in ISMIR 2021.
 
 ## Experimental Results
 
@@ -30,18 +30,18 @@ We trained Danna-Sep on the training set of MUSDB18-HQ, and tested it on the tes
 | Demucs (ours) | 6.72 | 6.97 | 4.4 | 6.88 | 6.24
 | Danna-Sep | **7.2** | **7.05** | **5.2** | **7.63** | **6.77**
 
-It's clear that our modifications to the baseline models indeed improve the performance, and by combining those models, Danna-Sep surpass all baselines by a large margin and achieve the state-of-the-art performance.
+It's clear that our modifications to the baseline models indeed improve the performance, and by combining these sub-models, Danna-Sep surpasses all baselines by a large margin and achieves the state-of-the-art performance.
 
 ## Resources
 
 ### Inferences
 
-We provide a pre-trained Danna-Sep as a python package and can be used as a command line tool, so user can separate there favorite songs using one simple command. 
+We provide a pre-trained Danna-Sep as a python package and can be used as a command line tool, so users can separate their favorite songs using one simple command. 
 The installation instructions are available [here](https://github.com/yoyololicon/danna-sep).
 
 ### Training
 
-If you want to redo our experiments, or want to train Danna-Sep on your own datasets, please checkout our [repository](https://github.com/yoyololicon/music-demixing-challenge-ismir-2021-entry). To use your own trained checkpoints, please install the [inference tool](#inferences) first, then follow the instructions in the repository README.
+If you want to replicate our experiments, or want to train Danna-Sep on your own datasets, please check out our [repository](https://github.com/yoyololicon/music-demixing-challenge-ismir-2021-entry). To use your own trained checkpoints, please install the [inference tool](#inferences) first, then follow the instructions in the repository README.
 
 
 ## Contact
