@@ -1,4 +1,4 @@
-# Dana-Sep
+# Danna-Sep
 
 Danna-Sep is a combination of three different sub-models: X-UMX, U-Net, and Demucs. Each sub-model has been modified either by training with a different objective, or by introducing some architecture changes. The final output is a linear combination of individual outputs from the sub-models.
 
